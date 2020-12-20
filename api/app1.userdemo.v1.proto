@@ -1,0 +1,27 @@
+syntax = "proto3";
+package app1.userDemo.v1;
+
+message LoginRequest {
+  string Username = 1;
+  string Password = 2;
+}
+
+message LoginResponse {
+  bool isLogin = 1;
+}
+
+message RegisteredRequest {
+  uint64 Age = 1;
+  string Username = 2;
+  string Password = 3;
+}
+
+message RegisteredResponse {
+  bool isRegistered = 1;
+}
+
+
+service UserDemo {
+  rpc Login(LoginRequest)returns(LoginResponse);
+  rpc Registered(RegisteredRequest)returns(RegisteredResponse);
+}
